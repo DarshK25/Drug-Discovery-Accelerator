@@ -110,3 +110,32 @@ The application will be available at http://localhost:3000.
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details. # Drug-Discovery-Accelerator
+
+## Running with Generative Models
+
+The application now includes real generative models for molecule generation and optimization:
+
+1. **Transformer-based Model**: Uses ChemBERTa for molecule generation
+2. **Variational Autoencoder (VAE)**: Encodes molecules into a latent space
+3. **Generative Adversarial Network (GAN)**: Generates molecules using adversarial training
+
+To run the application with these generative models:
+
+```bash
+python run_with_generative_models.py
+```
+
+This script will:
+1. Install all necessary dependencies
+2. Start the backend server with generative models enabled
+3. Start the frontend development server
+
+### Selecting a Model Type
+
+You can select which generative model to use by modifying the `model_type` parameter in the `MoleculeGenerator` class:
+
+```python
+# In backend/models/molecule_generator.py
+def __init__(self):
+    self.model_type = "transformer"  # Options: "vae", "gan", "transformer"
+```
